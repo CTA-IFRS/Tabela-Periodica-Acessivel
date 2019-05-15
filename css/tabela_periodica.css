@@ -1,0 +1,188 @@
+#oa *{
+	margin: 0;
+	padding: 0;	
+	font-family: Verdana, Arial;
+}
+
+#oa h1{
+	text-align: center;
+	padding: 30px 0 50px 0;	    
+	font-size: 2em;	
+}
+
+#oa h2{
+	margin-bottom: 10px;
+	font-size: 1em; 
+	display: block;
+	text-align: center;
+}
+
+#oa #menu{
+	display: block;
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
+	list-style-type: none;
+	text-align: center;
+	width: 80%;
+	margin: 0 auto 30px auto !important;
+	padding: 10px 0;
+}
+
+#oa #menu li{
+	display: inline-block;
+	margin: 0 10px;
+}
+
+#oa #menu li a{
+	text-decoration: none;
+	color: #000;
+}
+
+#oa #menu li a:hover, #oa #menu li a:focus{
+	text-decoration: underline;
+	color: blue;
+}
+
+#oa #menu li a.atual{
+	text-decoration: underline;
+}
+
+#oa #tabela{
+	width: 100%;
+    text-align: center;
+}
+
+#oa #tabela_periodica_completa, #tabela_periodica_metais{	
+	width: 649px;
+	/*margin: 0 auto;*/			
+}
+
+#oa #tabela_periodica_ametais{
+	width: 183px;
+}
+
+#oa #tabela_periodica_gases{
+	width: 32px;
+}
+
+#oa #tabela_periodica_semimetais{
+	width: 128px;
+}
+
+#tabela_periodica_completa, #tabela_periodica_ametais, #tabela_periodica_metais, 
+#tabela_periodica_gases, #tabela_periodica_semimetais{
+	margin: 0 auto;	
+	border-collapse:collapse;
+	/*border: 1px solid #000;	*/		
+	display: block;		
+	/*padding: 2px;*/
+}
+
+#oa #menu, #oa #dicas{	
+	margin-left: 30px;	
+	/* font-size: 1.2em; */
+}
+
+#oa #menu{	
+    margin-top: 10px;
+	list-style-type: none;
+}
+
+#oa #submenu{
+	margin-left: 30px;
+	list-style-type: square;
+}
+
+#oa #dicas{
+	list-style-type: square;
+	display: table;
+	margin: 0 auto;
+}
+
+#oa p.dicas{
+	text-align: center;
+	margin: 0 0 10px 0;
+}
+
+#oa td{
+	width: 35px;
+	height: 35px;			
+}
+
+#oa td.especial{
+	width: 33px !important; 
+	height: 33px !important;
+}
+
+#oa td.especial a{
+	width: 32px !important;
+	height: 27px !important;
+}
+
+#oa td a{
+	text-decoration: none;
+	outline: 0 none;
+	text-align: center;
+	font-size: 12px;	
+		
+	display: block;	
+	width: 35px;
+	height: 35px;			
+}
+
+#oa td a:hover{    
+	background-color: #EEE;
+	/*border: 1px solid #F00;*/
+	color: #F00;	
+}
+
+#oa td.elemento_visivel{	
+	text-align:center;	
+	border: 1px solid #EEE;		
+}
+
+#oa td.hidrogenio{
+	background-color: rgb(255,255,255);	
+}
+
+#oa td.metais{    
+	background-color: rgb(255,255,0);    
+}
+
+#oa td.semimetais{
+	background-color: #8FBC8F;
+}
+
+#oa td.ametais{
+	background-color: #38B0DE;	
+}
+
+#oa td.gases_nobres{
+	background-color: #D9D9F3;
+}
+
+#descricao{
+	width: 300px;
+	margin: 0 auto;
+	background-color: rgb(255,255,255);
+	border: 1px solid rgb(0,0,0);
+	padding: 10px;
+	
+}
+
+#oa p.descricao_lacunas{	
+    text-indent: -20000px;    
+}
+
+#oa #voltar{
+	display: block;
+	text-align: center;
+	font-size: 0.9em;
+	text-decoration: none;
+	outline: none;
+	padding-top: 20px;
+}
+#oa a#voltar{
+	cursor:pointer;
+}
+
