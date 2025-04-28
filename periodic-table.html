@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Tabela Peri&oacute;dica Acess&iacute;vel</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/app.css" rel="stylesheet" />
+  </head>
+
+  <body class="p-3">
+    <div class="container">
+      <h1 class="mb-4">Tabela Peri&oacute;dica Acess&iacute;vel</h1>
+
+      <!-- Filtros -->
+      <div class="controls d-flex flex-wrap gap-3 align-items-end">
+        <div>
+          <label for="groupFilter" class="form-label">Filtrar por:</label>
+          <select id="groupFilter" class="form-select">
+            <option value="">Todos</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="nameFilter" class="form-label">Busca por nome:</label>
+          <input type="text" id="nameFilter" class="form-control" placeholder="ex: Oxigênio" />
+        </div>
+
+        <button id="toggleViewBtn" class="btn btn-outline-primary">Alterar visualiza&ccedil;&atilde;o para lista</button>
+      </div>
+
+      <!-- Tabela Periodica -->
+      <div class="periodic-wrapper">
+        <div class="periodic-table" role="table" aria-label="Elementos da tabela peri&oacute;dica">
+          <!-- Grid elements (js updated) -->
+        </div>
+
+        <div class="list-view d-none list-group list-group-checkable d-grid gap-2 border-0" role="list">
+          <!-- List elements (js updated) -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="elementModal" tabindex="-1" aria-labelledby="elementModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="elementModalLabel">Informa&ccedil;&otilde;es do elemento</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+          </div>
+
+          <div class="modal-body">
+            <p id="elementDetails">
+              <!-- elements info (js updated) -->
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js" defer></script>
+  </body>
+</html>

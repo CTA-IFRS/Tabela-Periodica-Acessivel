@@ -1,0 +1,55 @@
+.periodic-wrapper 
+{
+    overflow-x: auto;
+}
+
+.periodic-table 
+{
+    display: grid;
+    grid-template-columns: repeat(18, 60px);
+    grid-auto-rows: 60px;
+    gap: 4px;
+    min-width: 1100px;
+}
+
+.element 
+{
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    padding: 4px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.element span.symbol 
+{
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.controls
+{
+    margin-bottom: 1rem;
+}
+
+.element small 
+{
+    font-size: 0.6rem;
+    color: #6c757d;
+}
+
+.list-view 
+{
+    margin-top: 1rem;
+}
+
+.list-view .list-group-item 
+{
+    cursor: pointer;
+    user-select: none;
+}
