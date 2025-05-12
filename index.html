@@ -17,15 +17,15 @@
       <!-- Filtros -->
       <div class="controls d-flex flex-wrap gap-3 align-items-end">
         <div>
-          <label for="groupFilter" class="form-label">Filtrar por:</label>
-          <select id="groupFilter" class="form-select">
+          <label for="filtroSerie" class="form-label">Filtrar por:</label>
+          <select id="filtroSerie" class="form-select">
             <option value="">Todos</option>
           </select>
         </div>
 
         <div>
-          <label for="nameFilter" class="form-label">Busca por nome:</label>
-          <input type="text" id="nameFilter" class="form-control" placeholder="ex: Oxigênio" />
+          <label for="nomeFiltro" class="form-label">Busca por nome:</label>
+          <input type="text" id="nomeFiltro" class="form-control" placeholder="ex: Oxigênio" />
         </div>
 
         <button id="toggleViewBtn" class="btn btn-outline-primary">Alterar visualiza&ccedil;&atilde;o para lista</button>
@@ -34,11 +34,11 @@
       <!-- Tabela Periodica -->
       <div class="periodic-wrapper">
         <div class="periodic-table" role="table" aria-label="Elementos da tabela peri&oacute;dica">
-          <!-- Grid elements (js updated) -->
+          <!-- Elementos por Grid (via Js) -->
         </div>
 
         <div class="list-view d-none list-group list-group-checkable d-grid gap-2 border-0" role="list">
-          <!-- List elements (js updated) -->
+          <!-- Elementos por Lista (via Js) -->
         </div>
       </div>
     </div>
@@ -54,7 +54,7 @@
 
           <div class="modal-body">
             <p id="elementDetails">
-              <!-- elements info (js updated) -->
+              <!-- informações (via Js) -->
             </p>
           </div>
         </div>

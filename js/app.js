@@ -133,67 +133,85 @@ const elementos =
     {simbolo: 'Og', nome: 'Oganessônio', numero: 118, massa: '[294]',  serie: 'Gás Nobre', row: 7, col: 18},
 ];
 
-let currentView = 'grid';
-let currentFiltered = elements.slice();
+let vizualizacaoAtual = 'grid';
+let filtroAtual = elementos.slice();
 
+//se o documento estiver carregado
 $(document).ready(function () {
-    // Populate filter
-    const groupKeys = Object.keys(groups).sort();
-    groupKeys.forEach(group => 
-    {
-        $('#groupFilter').append(`<option value="${group}">${group}</option>`);
+    //adiciona as séries no select do filtro
+    const seriesKeys = Object.keys(series).sort();
+    seriesKeys.forEach(serie => {
+        $('#filtroSerie').append(`<option value="${serie}">${serie}</option>`);
     });
 
-    $('#toggleViewBtn').on('click', function () 
-    {
-        currentView = currentView === 'grid' ? 'list' : 'grid';
-        $(this).text(currentView === 'grid' ? 'Alterar visualização para lista' : 'Alterar visualização para tabela');
+    //muda a visualização da tabela entre grid e lista
+    $('#toggleViewBtn').on('click', function () {
+        //caso já esteja como grid, mude para lista e vice versa
+        if (vizualizacaoAtual === 'grid') {
+            vizualizacaoAtual = 'list';
+        } else {
+            vizualizacaoAtual = 'grid';
+        }
+
+        //altera texto do btn
+        if (vizualizacaoAtual === 'grid') {
+            $(this).text('Alterar visualização para lista');
+        } else {
+            $(this).text('Alterar visualização para tabela');
+        }
         
-        renderTable(currentFiltered);
+        exibeTabela(filtroAtual);
     });
 
-    // Render table
-    function renderTable(filtered = elements) 
-    {
-        const $grid = $(".periodic-table").empty().toggleClass("d-none", currentView === 'list');
-        const $list = $(".list-view").empty().toggleClass("d-none", currentView === 'grid');
+    //função para exibir os elementos
+    function exibeTabela(filtrados = elementos) {   
+        //prepara o modo de visualização Grid
+        const $grid = $(".periodic-table").empty().toggleClass("d-none", vizualizacaoAtual === 'list');
 
-        filtered.forEach((el) => 
-        {
-            if (currentView === 'grid') 
-            {
+        //prepara o modo de visualização Lista
+        const $list = $(".list-view").empty().toggleClass("d-none", vizualizacaoAtual === 'grid');
+
+        //para cada elemento, exiba...
+        filtrados.forEach((el) => {
+            //caso seja grid
+            if (vizualizacaoAtual === 'grid') {   
+                //construção da div (btn) do elemento na tabela
                 const $div = $(`
-                <div class="element" role="button" tabindex="0"
-                    aria-label="${el.name}, symbol ${el.symbol}, atomic number ${el.atomic}"
-                    style="grid-column: ${el.col}; background-color: ${groups[el.group]?.color || '#f8f9fa'};">
-                    <span class="symbol">${el.symbol}</span>
-                    <div>${el.name}</div>
-                    <small>#${el.atomic}</small>
+                <div class="elemento" role="button" tabindex="0"
+                    aria-label="${el.nome}, simbolo ${el.simbolo}, numero atomico ${el.numero}"
+                    style="grid-column: ${el.col}; grid-row: ${el.row}; background-color: ${series[el.serie]?.color || '#f8f9fa'};">
+                    <span class="simbolo">${el.simbolo}</span>
+                    <div>${el.nome}</div>
+                    <small>${el.numero}</small>
                 </div>
                 `);
 
+                //identifica que se for click ou key press mostra a modal do elemento para exibir modal
                 $div.on('click keypress', function (e) {
-                    if (e.type === "click" || e.key === "Enter" || e.key === " ") 
-                    {
-                        showModal(el);
+                    if (e.type === "click" || e.key === "Enter" || e.key === " ") {
+                        exibeModal(el);
                     }
                 });
 
                 $grid.append($div);
             } 
+
+            //caso lista
             else 
-            {
+            {   
+                //construção da div do elemento da tabela por lista
                 const $item = $(`
                 <div class="list-group-item list-group-item-action" role="listitem" tabindex="0">
-                    <strong>${el.atomic}. ${el.name} (${el.symbol})</strong><br>
-                    <small>Group: ${el.group}, Period: ${el.period}</small>
+                    <strong>${el.numero}. ${el.nome} (${el.simbolo})</strong>
+                    <br>
+                    <small>Série: ${el.serie}</small>
                 </div>
                 `);
 
+                //identifica que se for click ou key press mostra a modal do elemento para exibir modal
                 $item.on('click keypress', function (e) {
-                    if (e.type === "click" || e.key === "Enter" || e.key === " ") 
-                    {
-                        showModal(el);
+                    if (e.type === "click" || e.key === "Enter" || e.key === " ") {
+                        exibeModal(el);
                     }
                 });
 
@@ -201,54 +219,60 @@ $(document).ready(function () {
             }
         });
 
-        if (filtered.length === 1) 
+
+        //grava onde está o foco
+        if (filtrados.length === 1) 
         {
-            const focusTarget = currentView === 'grid' ? $grid.find(".element") : $list.find(".list-group-item");
+            const focusTarget = vizualizacaoAtual === 'grid' ? $grid.find(".elemento") : $list.find(".list-group-item");
 
             focusTarget?.focus();
         }
     }
 
-    function showModal(element) 
-    {
-        originElement = document.activeElement; // Store the element that triggered the modal
-
-        $('#elementModalLabel').text(`${element.name} (${element.symbol})`);
+    function exibeModal(elemento) {
+        //elemento acionado -> elemento que deve retirar os dados
+        elementoFonte = document.activeElement; 
+        
+        //texto da modal (header)
+        $('#elementModalLabel').text(`${elemento.nome} (${elemento.simbolo})`); 
+        
+        //conteúdo interno (caixa)
         $('#elementDetails').html(`
-            <strong>Atomic Number:</strong> ${element.atomic}<br>
-            <strong>Group:</strong> ${element.group}<br>
-            <strong>Period:</strong> ${element.period}<br>
+            <strong>Número Atômico:</strong> ${elemento.numero}<br>
+            <strong>Série:</strong> ${elemento.serie}<br>
         `);
 
         const modal = new bootstrap.Modal('#elementModal');
         modal.show();
     }
 
-    $('#elementModal').on('hidden.bs.modal', function () 
-    {
-        if (originElement) 
-        {
-            originElement.focus();
-            originElement = null;
+    //retorna foco para onde estava depois de fechar modal
+    $('#elementModal').on('hidden.bs.modal', function () {
+        if (elementoFonte) {
+            elementoFonte.focus();
+            elementoFonte = null;
         }
     });
 
-    function filterElements() {
-        const groupVal = groupFilter.value;
-        const nameVal = nameFilter.value.trim().toLowerCase();
+    function elementosFiltrados() {
+        const serieValor = filtroSerie.value;
+        const valorNome = nomeFiltro.value.trim().toLowerCase();
 
-        currentFiltered = elements.filter(el => 
-        {
-            const matchesGroup = groupVal === "" || el.group === groupVal;
-            const matchesName = nameVal === "" || el.name.toLowerCase().includes(nameVal);
-            return matchesGroup && matchesName;
+        filtroAtual = elementos.filter(el => {
+            //se a série for vazia (todos) ou se for de determinada série
+            const igualSerie = serieValor === "" || el.serie === serieValor;
+
+            //se o nome for vazio (todos) ou se for o texto dizitado (ignora maiúscula/minúscula)
+            const igualNome = valorNome === "" || el.nome.toLowerCase().includes(valorNome);
+
+            return igualSerie && igualNome;
         });
 
-        renderTable(currentFiltered);
+        exibeTabela(filtroAtual);
     }
 
-    $('#groupFilter').on('change', filterElements);
-    $('#nameFilter').on('input', filterElements);
+    $('#filtroSerie').on('change', elementosFiltrados);
+    $('#nomeFiltro').on('input', elementosFiltrados);
 
-    renderTable();
+    exibeTabela();
 });
