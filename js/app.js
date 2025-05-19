@@ -257,6 +257,7 @@ $(document).ready(function () {
     function elementosFiltrados() {
         const serieValor = filtroSerie.value;
         const valorNome = nomeFiltro.value.trim().toLowerCase();
+        const valorSimbolo = nomeFiltro.value.trim().toLowerCase();
 
         filtroAtual = elementos.filter(el => {
             //se a série for vazia (todos) ou se for de determinada série
@@ -264,8 +265,11 @@ $(document).ready(function () {
 
             //se o nome for vazio (todos) ou se for o texto dizitado (ignora maiúscula/minúscula)
             const igualNome = valorNome === "" || el.nome.toLowerCase().includes(valorNome);
+            
+            //se o simbolo for vazio (todos) ou se for texto do input
+            const igualSimbolo = valorSimbolo === "" || el.simbolo.toLocaleLowerCase().includes(valorSimbolo);
 
-            return igualSerie && igualNome;
+            return (igualSerie && igualNome) || (igualSerie && igualSimbolo);
         });
 
         exibeTabela(filtroAtual);
