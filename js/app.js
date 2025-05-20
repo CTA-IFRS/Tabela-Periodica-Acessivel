@@ -1,14 +1,58 @@
 const series = 
 {
-    "Não Metal": { color: "#72E534", elements: [] },
-    "Gás Nobre": { color: "#5914C0", elements: [] },
-    "Metal Alcalino": { color: "#FF7327", elements: [] },
-    "Metal Alcalino Terroso": { color: "#FFC800", elements: [] },
-    "Metal de Transição": { color: "#D41414", elements: [] },
-    "Outros Metais": { color: "#A5E1C7", elements: [] },
-    "Lantanídeo": { color: "#CA57A6", elements: [] },
-    "Actinídeo": { color: "#AC51CD", elements: [] },
-    "Halogênio": { color: "#2193DB", elements: [] },
+    "Não Metal": {
+        color:{
+            normal:{bgColor:"#72E534", color:"#212529"},
+            highcontrast:{bgColor:"#ACF584", color:"#000000"},}, 
+        elements: [] },
+    
+    "Gás Nobre": { 
+        color:{
+            normal:{bgColor:"#5914C0", color:"#212529"},
+            highcontrast:{bgColor:"#C7AAF4",color:"#000000"},}, 
+        elements: [] },
+    
+    "Metal Alcalino": { 
+        color:{
+            normal:{bgColor:"#FF7327",color:"#212529"},
+            highcontrast:{bgColor:"#FF9F6B", color:"#1E1E1E"},},
+        elements: [] },
+    
+    "Metal Alcalino Terroso": { 
+        color: {
+            normal:{bgColor:"#FFC800",color:"#212529"},
+            highcontrast:{bgColor:"#FFD642",color:"#000000"},}, 
+        elements: [] },
+    
+    "Metal de Transição": { 
+        color:{
+            normal:{bgColor:"#D41414",color:"#212529"},
+            highcontrast:{bgColor:"#FF7575", color:"94FFED"},}, 
+        elements: [] },
+    
+    "Outros Metais": { 
+        color: {
+            normal:{bgColor:"#A5E1C7",color:"#212529"},
+            highcontrast:{bgColor:"#BBF2DB", color:"#000000"},}, 
+        elements: [] },
+    
+    "Lantanídeo": { 
+        color: {
+            normal:{bgColor:"#CA57A6",color:"#212529"},
+            highcontrast:{bgColor:"#FFC2EC", color:"#212529"},}, 
+        elements: [] },
+    
+    "Actinídeo": { 
+        color: {
+            normal:{bgColor:"#AC51CD",color:"#212529"},
+            highcontrast:{bgColor:"#ECB8FF", color:"#000000"},}, 
+        elements: [] },
+    
+    "Halogênio": { 
+        color: {
+            normal:{bgColor:"#2193DB",color:"#212529"},
+            highcontrast:{bgColor:"#B4DBF4", color:"#000000"},}, 
+        elements: [] },
 };
 
 const elementos = 
