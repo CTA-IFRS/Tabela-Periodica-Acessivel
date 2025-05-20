@@ -57,7 +57,7 @@ const series =
 
 const elementos = 
 [
-    {simbolo: 'H', nome: 'Hidrogênio', numero: 1, massa: 1.008,  serie: 'Hidrogênio', linha: 1, coluna: 1,},
+    {simbolo: 'H', nome: 'Hidrogênio', numero: 1, massa: 1.008,  serie: 'Não Metal', linha: 1, coluna: 1,},
     {simbolo: 'He', nome: 'Hélio', numero: 2, massa: 4.003,  serie: 'Gás Nobre', linha: 1, coluna: 18},
     {simbolo: 'Li', nome: 'Lítio', numero: 3, massa: 6.941,  serie: 'Metal Alcalino', linha: 2, coluna: 1},
     {simbolo: 'Be', nome: 'Berílio', numero: 4, massa: 9.012,  serie: 'Metal Alcalino Terroso', linha: 2, coluna: 2},
@@ -223,7 +223,7 @@ $(document).ready(function () {
                 const $div = $(`
                 <div class="elemento" role="button" tabindex="0"
                     aria-label="${el.nome}, simbolo ${el.simbolo}, numero atomico ${el.numero}"
-                    style="grid-column: ${el.coluna}; grid-row: ${el.linha}; background-color: ${series[el.serie]?.color || '#f8f9fa'};">
+                    style="grid-column: ${el.coluna}; grid-row: ${el.linha}; color:${series[el.serie]?.color?.[temaAtual]?.color} ; background-color: ${series[el.serie]?.color?.[temaAtual]?.bgColor || "#ccc"};">
                     <span class="simbolo">${el.simbolo}</span>
                     <div>${el.nome}</div>
                     <small>${el.numero}</small>
@@ -272,6 +272,21 @@ $(document).ready(function () {
             focusTarget?.focus();
         }
     }
+
+    // Altera o tema de normal paraa
+    let temaAtual = 'normal';
+    $('#toggleThemeBtn').on('click', function() {
+        const textoAtual = $(this).text();
+        if (textoAtual === 'Alto Contraste') {
+            $(this).text('Tema Normal');
+            temaAtual = 'highcontrast';
+        } else {
+            $(this).text('Alto Contraste');
+            temaAtual = 'normal';
+        }
+
+        exibeTabela(filtroAtual); // chamada para redesenhar os elementos com o novo tema
+    });
 
     function exibeModal(elemento) {
         //elemento acionado -> elemento que deve retirar os dados
