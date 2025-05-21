@@ -1,4 +1,4 @@
-const series = 
+const series =
 {
     "Não Metal": {
         color:{
@@ -203,12 +203,12 @@ $(document).ready(function () {
         } else {
             $(this).text('Alterar visualização para tabela');
         }
-        
+
         exibeTabela(filtroAtual);
     });
 
     //função para exibir os elementos
-    function exibeTabela(filtrados = elementos) {   
+    function exibeTabela(filtrados = elementos) {
         //prepara o modo de visualização Grid
         const $grid = $(".periodic-table").empty().toggleClass("d-none", vizualizacaoAtual === 'list');
 
@@ -218,7 +218,7 @@ $(document).ready(function () {
         //para cada elemento, exiba...
         filtrados.forEach((el) => {
             //caso seja grid
-            if (vizualizacaoAtual === 'grid') {   
+            if (vizualizacaoAtual === 'grid') {
                 //construção da div (btn) do elemento na tabela
                 const $div = $(`
                 <div class="elemento" role="button" tabindex="0"
@@ -238,11 +238,10 @@ $(document).ready(function () {
                 });
 
                 $grid.append($div);
-            } 
+            }
 
             //caso lista
-            else 
-            {   
+            else {
                 //construção da div do elemento da tabela por lista
                 const $item = $(`
                 <div class="list-group-item list-group-item-action" role="listitem" tabindex="0">
@@ -265,8 +264,7 @@ $(document).ready(function () {
 
 
         //grava onde está o foco
-        if (filtrados.length === 1) 
-        {
+        if (filtrados.length === 1) {
             const focusTarget = vizualizacaoAtual === 'grid' ? $grid.find(".elemento") : $list.find(".list-group-item");
 
             focusTarget?.focus();
@@ -290,11 +288,11 @@ $(document).ready(function () {
 
     function exibeModal(elemento) {
         //elemento acionado -> elemento que deve retirar os dados
-        elementoFonte = document.activeElement; 
-        
+        elementoFonte = document.activeElement;
+
         //texto da modal (header)
-        $('#elementModalLabel').text(`${elemento.nome} (${elemento.simbolo})`); 
-        
+        $('#elementModalLabel').text(`${elemento.nome} (${elemento.simbolo})`);
+
         //conteúdo interno (caixa)
         $('#elementDetails').html(`
             <strong>Número Atômico:</strong> ${elemento.numero}<br>
@@ -318,24 +316,54 @@ $(document).ready(function () {
         const valorNome = nomeFiltro.value.trim().toLowerCase();
         const valorSimbolo = nomeFiltro.value.trim().toLowerCase();
 
-        filtroAtual = elementos.filter(el => {
-            //se a série for vazia (todos) ou se for de determinada série
-            const igualSerie = serieValor === "" || el.serie === serieValor;
+            filtroAtual = elementos.filter(el => {
+                //se a série for vazia (todos) ou se for de determinada série
+                const igualSerie = serieValor === "" || el.serie === serieValor;
 
-            //se o nome for vazio (todos) ou se for o texto dizitado (ignora maiúscula/minúscula)
-            const igualNome = valorNome === "" || el.nome.toLowerCase().includes(valorNome);
-            
-            //se o simbolo for vazio (todos) ou se for texto do input
-            const igualSimbolo = valorSimbolo === "" || el.simbolo.toLocaleLowerCase().includes(valorSimbolo);
+                //se o nome for vazio (todos) ou se for o texto dizitado (ignora maiúscula/minúscula)
+                const igualNome = valorNome === "" || el.nome.toLowerCase().includes(valorNome);
 
-            return (igualSerie && igualNome) || (igualSerie && igualSimbolo);
-        });
+                //se o simbolo for vazio (todos) ou se for texto do input
+                const igualSimbolo = valorSimbolo === "" || el.simbolo.toLocaleLowerCase().includes(valorSimbolo);
+
+                return (igualSerie && igualNome) || (igualSerie && igualSimbolo);
+            });
 
         exibeTabela(filtroAtual);
     }
 
-    $('#filtroSerie').on('change', elementosFiltrados);
-    $('#nomeFiltro').on('input', elementosFiltrados);
+
+    document.getElementById('nomeFiltro').addEventListener('keydown', function (event) {
+        const tipoPesquisa = document.getElementById('switchPesquisa').checked;
+        if (!tipoPesquisa && event.key === 'Enter') {
+            elementosFiltrados();
+        } 
+    });
+    
+    
+    document.getElementById('btnPesquisa').addEventListener('keydown', function (event) {
+        if(event.key === 'Enter') {
+            elementosFiltrados();
+        }
+    });
+
+    document.getElementById('btnPesquisa').addEventListener('click', function (event) {
+        elementosFiltrados();
+    });
+
+    document.getElementById('btnResetPesquisa').addEventListener('click', function () {
+        filtroSerie.value = "";
+        nomeFiltro.value = "";
+        filtroAtual = elementos.slice();
+        exibeTabela(filtroAtual);
+    })
+
+    $('#filtroSerie').on('change', () => elementosFiltrados());
+    $('#nomeFiltro').on('input', function () {
+        if (document.getElementById('switchPesquisa').checked) {
+            elementosFiltrados();
+        }
+    });
 
     exibeTabela();
 });

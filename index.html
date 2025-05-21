@@ -24,8 +24,17 @@
         </div>
 
         <div>
-          <label for="nomeFiltro" class="form-label">Busca por nome:</label>
-          <input type="text" id="nomeFiltro" class="form-control" placeholder="ex: Oxigênio" />
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="switchPesquisa">
+            <label class="form-check-label" for="switchPesquisa">Busca ao vivo</label>
+          </div>
+        
+          <form id="formPesquisa" action="#">
+            <label for="nomeFiltro" class="form-label">Pesquisa por Nome ou Símbolo</label>
+            <input type="text" id="nomeFiltro" class="form-control" placeholder="ex: Oxigênio"/>
+            <button type="button" id="btnPesquisa" class="btn btn-primary">Pesquisar</button>
+            <button type="reset" id="btnResetPesquisa" class="btn btn-secondary">Limpar pesquisa</button>
+          </form>
         </div>
 
         <button id="toggleViewBtn" class="btn btn-outline-primary">Alterar visualiza&ccedil;&atilde;o para lista</button>
