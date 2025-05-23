@@ -1,63 +1,69 @@
 const series =
 {
-    "Não Metal": {
+    "Hidrogênio": {
         color:{
-            normal:{bgColor:"#72E534", color:"#212529"},
-            highcontrast:{bgColor:"#ACF584", color:"#000000"},}, 
+            normal:{bgColor:"#C2C2C2", color:"#000000"},
+            highcontrast:{bgColor:"#E6E6E6", color:"#000000"},}, 
         elements: [] },
     
-    "Gás Nobre": { 
+    "Não Metal": { // cores certas
         color:{
-            normal:{bgColor:"#5914C0", color:"#212529"},
+            normal:{bgColor:"#72E534", color:"#000000"},
+            highcontrast:{bgColor:"#ACFF80", color:"#000000"},}, 
+        elements: [] },
+    
+    "Gás Nobre": { // cores certas
+        color:{
+            normal:{bgColor:"#5914C0", color:"#FFFFFF"},
             highcontrast:{bgColor:"#C7AAF4",color:"#000000"},}, 
         elements: [] },
     
-    "Metal Alcalino": { 
+    "Metal Alcalino": { // cores certas
         color:{
-            normal:{bgColor:"#FF7327",color:"#212529"},
-            highcontrast:{bgColor:"#FF9F6B", color:"#1E1E1E"},},
+            normal:{bgColor:"#FF7327",color:"#000000"},
+            highcontrast:{bgColor:"#FF9F6B", color:"#000000"},},
         elements: [] },
     
-    "Metal Alcalino Terroso": { 
+    "Metal Alcalino Terroso": { // cores certas
         color: {
-            normal:{bgColor:"#FFC800",color:"#212529"},
+            normal:{bgColor:"#FFC800",color:"#000000"},
             highcontrast:{bgColor:"#FFD642",color:"#000000"},}, 
         elements: [] },
     
-    "Metal de Transição": { 
+    "Metal de Transição": { // cores certas
         color:{
-            normal:{bgColor:"#D41414",color:"#212529"},
-            highcontrast:{bgColor:"#FF7575", color:"94FFED"},}, 
+            normal:{bgColor:"#A21010",color:"#FFFFFF"},
+            highcontrast:{bgColor:"#F98B8B", color:"#000000"},}, 
         elements: [] },
     
-    "Outros Metais": { 
+    "Outros Metais": { // cores certas
         color: {
-            normal:{bgColor:"#A5E1C7",color:"#212529"},
+            normal:{bgColor:"#48DB9B",color:"#000000"},
             highcontrast:{bgColor:"#BBF2DB", color:"#000000"},}, 
         elements: [] },
     
-    "Lantanídeo": { 
+    "Lantanídeo": { // cores certas
         color: {
-            normal:{bgColor:"#CA57A6",color:"#212529"},
-            highcontrast:{bgColor:"#FFC2EC", color:"#212529"},}, 
+            normal:{bgColor:"#FB7ED4",color:"#000000"},
+            highcontrast:{bgColor:"#FFC2EC", color:"#000000"},}, 
         elements: [] },
     
-    "Actinídeo": { 
+    "Actinídeo": { // cores certas
         color: {
-            normal:{bgColor:"#AC51CD",color:"#212529"},
+            normal:{bgColor:"#CF4DFF",color:"#000000"},
             highcontrast:{bgColor:"#ECB8FF", color:"#000000"},}, 
         elements: [] },
     
-    "Halogênio": { 
+    "Halogênio": { // cores certas
         color: {
-            normal:{bgColor:"#2193DB",color:"#212529"},
+            normal:{bgColor:"#248BCC",color:"#000000"},
             highcontrast:{bgColor:"#B4DBF4", color:"#000000"},}, 
         elements: [] },
 };
 
 const elementos = 
 [
-    {simbolo: 'H', nome: 'Hidrogênio', numero: 1, massa: 1.008,  serie: 'Não Metal', linha: 1, coluna: 1,},
+    {simbolo: 'H', nome: 'Hidrogênio', numero: 1, massa: 1.008,  serie: 'Hidrogênio', linha: 1, coluna: 1,},
     {simbolo: 'He', nome: 'Hélio', numero: 2, massa: 4.003,  serie: 'Gás Nobre', linha: 1, coluna: 18},
     {simbolo: 'Li', nome: 'Lítio', numero: 3, massa: 6.941,  serie: 'Metal Alcalino', linha: 2, coluna: 1},
     {simbolo: 'Be', nome: 'Berílio', numero: 4, massa: 9.012,  serie: 'Metal Alcalino Terroso', linha: 2, coluna: 2},
@@ -271,20 +277,6 @@ $(document).ready(function () {
         }
     }
 
-    // Altera o tema de normal paraa
-    let temaAtual = 'normal';
-    $('#toggleThemeBtn').on('click', function() {
-        const textoAtual = $(this).text();
-        if (textoAtual === 'Alto Contraste') {
-            $(this).text('Tema Normal');
-            temaAtual = 'highcontrast';
-        } else {
-            $(this).text('Alto Contraste');
-            temaAtual = 'normal';
-        }
-
-        exibeTabela(filtroAtual); // chamada para redesenhar os elementos com o novo tema
-    });
 
     function exibeModal(elemento) {
         //elemento acionado -> elemento que deve retirar os dados
@@ -309,6 +301,23 @@ $(document).ready(function () {
             elementoFonte.focus();
             elementoFonte = null;
         }
+    });
+
+    // Lógica para alterar a página para alto contraste
+    let temaAtual = 'normal';
+    $('#toggleThemeBtn').on('click', function() {
+        const textoAtual = $(this).text();
+        if (textoAtual === 'Trocar para Alto Contraste') { // esta no tema normal e troca para alto contraste
+            $(this).text('Trocar para Tema Normal'); // troca o texto do botão
+            $('body').addClass('highContrast'); // troca a classe do body para alto contraste
+            temaAtual = 'highcontrast';
+        } else { // esta no alto contraste e troca para normal
+            $(this).text('Trocar para Alto Contraste'); // troca o texto do botão
+            $('body').removeClass('highContrast'); // troca a classe do body para voltar ao normal
+            temaAtual = 'normal';
+        }
+
+        exibeTabela(filtroAtual); // chamada para redesenhar os elementos com o novo tema
     });
 
     function elementosFiltrados() {
