@@ -2997,8 +2997,26 @@ $(document).ready(function () {
 
         //conteúdo interno (caixa)
         $('#elementDetails').html(`
-            <strong>Número Atômico:</strong> ${elemento.numero}<br>
-            <strong>Série:</strong> ${elemento.serie}<br>
+            <ul>
+                <li><b>Número Atômico:</b> ${elemento.numero}</li>
+                <li><b>Massa Atômica:</b> ${elemento.massa}</li>
+                <li><b>Série:</b> ${elemento.serie}</li>
+                <li><b>Grupo:</b> ${elemento.grupo}</li>
+                <li><b>Período:</b> ${elemento.periodo}</li>
+                <li><b>Distribuição Eletrônica:</b> ${elemento.distribuicao}</li>
+                <li><b>Ponto de Fusão:</b> ${elemento.pFusao}</li>
+                <li><b>Ponto de Ebulição:</b> ${elemento.pEbulicao}</li>
+                <li><b>Densidade:</b> ${elemento.densidade}</li>
+                <li><b>Raio Atômico:</b> ${elemento.raio}</li>
+                <li><b>Eletronegatividade:</b> ${elemento.eletronegatividade}</li>
+                <li><b>Eletroafinidade:</b> ${elemento.eletroafinidade}</li>
+                <li><b>Ionização:</b> ${elemento.ionizacao}</li>
+                <li><b>Estados de Oxidação:</b> ${elemento.oxidacao}</li>
+                <li><b>Radioatividade:</b> ${elemento.radioatividade}</li>
+                <li><b>Isótopos Estáveis:</b> ${elemento.isotopo}</li>
+                <li><b>Abundância no Universo:</b> ${elemento.abundancia}</li>
+                <li><b>Descobrimento:</b> ${elemento.descobribento}</li>
+            </ul>
         `);
 
         const modal = new bootstrap.Modal('#elementModal');
