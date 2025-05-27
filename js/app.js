@@ -2937,7 +2937,7 @@ $(document).ready(function () {
             if (vizualizacaoAtual === 'grid') {
                 //construção da div (btn) do elemento na tabela
                 const $div = $(`
-                <div class="elemento" role="button" tabindex="0"
+                <div id="elemento${el.numero}" class="elemento" role="button" tabindex="0"
                     aria-label="${el.nome}, simbolo ${el.simbolo}, numero atomico ${el.numero}"
                     style="grid-column: ${el.coluna}; grid-row: ${el.linha}; color:${series[el.serie]?.color?.[temaAtual]?.color} ; background-color: ${series[el.serie]?.color?.[temaAtual]?.bgColor || "#ccc"};">
                     <span class="simbolo">${el.simbolo}</span>
