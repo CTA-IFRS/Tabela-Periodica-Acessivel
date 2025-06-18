@@ -62,7 +62,7 @@
 }
 
 .body{
-    background-color: whitesmoke;
+    background-color: #FFFFFF;
     color: black;
 }
 
@@ -83,6 +83,134 @@
 .modal-content button:hover{
     background-color: rgba(138, 138, 138, 0.616);
 }
+
+.tittle{
+    display: flex;
+    align-items: center;
+}
+
+.filters{
+    background-color: #F8F9FA;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: .5rem;
+}
+
+#opcoes{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.searchOptions{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+#formPesquisa {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+}
+
+#periodos{
+    padding:0 .5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style-type: none;
+}
+
+#periodos li a{
+    text-decoration: none;
+    color: #343A40;
+    background-color: transparent;
+}
+#periodos li a:hover{
+    text-decoration: underline;
+}
+
+
+.form-check{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+button{
+    border: none;
+    background-color: #D8D8D8;
+    color: #343A40;
+    opacity: 95%;
+}
+
+button:hover{
+    text-decoration: underline;
+    color: #000000;
+}
+
+nav.barra-acessibilidade{
+    background-color: #D8D8D8;
+    padding: 0.5rem 0;
+}
+
+nav.barra-acessibilidade a:hover{
+    text-decoration: underline;
+}
+
+
+nav.barra-acessibilidade ul{
+    margin: 0 1rem 0 1rem;
+    padding: 0;
+    background-color: #D8D8D8;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style-type: none;
+}
+
+nav.barra-acessibilidade ul li a{
+    text-decoration: none;
+    color: #343A40;
+    background-color: transparent;
+}
+
+nav.barra-acessibilidade ul div{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25em 0.4em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+  background-color: #000000;
+  margin-left: 0.2rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 .highContrast{
     background-color: black;

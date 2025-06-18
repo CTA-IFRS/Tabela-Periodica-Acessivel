@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Tabela Peri&oacute;dica Acess&iacute;vel</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/app.css" rel="stylesheet" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+  
+  </head>
+
+  <body class="body">
+    <header>
+      <!-- filtros primeira parte -->
+      <nav class="barra-acessibilidade" aria-label="Menu de acessibilidade">
+        <ul>
+          <div>
+            <li><a href="#conteudoPrincipal" accesskey="1"> <small>Ir para o conte&uacute;do<span class="badge">1</span></small> </a></li>
+            <li><a href="#opcoes" accesskey="2"> <small>Ir para opç&otilde;es de busca e filtro<span class="badge">2</span></small> </a></li> 
+          </div>
+      
+          <div>
+            <li>
+              <button id="toggleThemeBtn"> <i id="themeIcon" class="bi bi-circle-half">&nbsp;</i> <span id="themeText">Trocar para Alto Contraste</span></button>
+            </li>
+          </div>
+        </ul>
+      </nav>
+      
+      <!-- filtros segunda parte -->
+      <div class="filters"> 
+        <div class="tittle">
+          <h1 class="p-2">Tabela Peri&oacute;dica Acess&iacute;vel</h1>
+        </div>
+
+        <div id="opcoes">
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="switchPesquisa">
+            <label class="form-check-label" for="switchPesquisa">Busca ao vivo</label>
+          </div>        
+          
+
+          <!-- Filtros -->
+          <div class="searchOptions container px-0">
+            <form id="formPesquisa" action="#" class="d-flex flex-wrap gap-2 align-items-end">
+
+              <div class="form-floating flex-fill" style="min-width: 200px;">
+                <input type="text" class="form-control" id="nomeFiltro" placeholder="ex: Oxigênio">
+                <label for="nomeFiltro">Nome ou Símbolo</label>
+              </div>
+
+              <div class="form-floating" style="min-width: 180px;">
+                <select class="form-select" id="filtroSerie" aria-label="Filtro por série">
+                  <option value="">Todos</option>
+                </select>
+                <label for="filtroSerie">Filtrar por</label>
+              </div>
+
+              <div>
+                <button type="button" class="btn btn-primary" id="btnPesquisa">Pesquisar</button>
+              </div>
+
+              <div>
+                <button type="reset" class="btn btn-outline-primary" id="btnResetPesquisa">Limpar</button>
+              </div>
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+
+      <div>
+        <ul id="periodos">
+          <li><a href="#elemento1" accesskey="3">  <small> Ir para o período 1<span class="badge">3</span></small> </a></li> 
+          <li><a href="#elemento3" accesskey="4">  <small> Ir para o período 2<span class="badge">4</span></small> </a></li> 
+          <li><a href="#elemento11" accesskey="5"> <small> Ir para o período 3<span class="badge">5</span></small> </a></li> 
+          <li><a href="#elemento19" accesskey="6"> <small> Ir para o período 4<span class="badge">6</span></small> </a></li> 
+          <li><a href="#elemento37" accesskey="7"> <small> Ir para o período 5<span class="badge">7</span></small> </a></li> 
+          <li><a href="#elemento55" accesskey="8"> <small> Ir para o período 6<span class="badge">8</span></small> </a></li> 
+          <li><a href="#elemento87" accesskey="9"> <small> Ir para o período 7<span class="badge">9</span></small> </a></li> 
+          <form action="#">
+            <label for="visualizacao">Modo de visualização: </label>
+            <select name="visualizacao" id="visualizacao">
+              <option value="tabela">Tabela</option>
+              <option value="lista">Lista</option>
+            </select>
+            <button id="toggleViewBtn">Ok</button>
+          </form>
+
+        </ul>
+      </div>
+    </header>
+
+    <div class="container">
+      <!-- Tabela Periodica -->
+      <div class="periodic-wrapper" id="conteudoPrincipal">
+        <div class="periodic-table" role="table" aria-label="Elementos da tabela peri&oacute;dica">
+          <!-- Elementos por Grid (via Js) -->
+        </div>
+
+        <div class="list-view d-none list-group list-group-checkable d-grid gap-2 border-0" role="list">
+          <!-- Elementos por Lista (via Js) -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="elementModal" tabindex="-1" aria-labelledby="elementModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="elementModalLabel">Informa&ccedil;&otilde;es do elemento</h5>
+            <button type="button" data-bs-dismiss="modal" aria-label="Fechar">X</button>
+          </div>
+
+          <div class="modal-body">
+            <p id="elementDetails">
+              <!-- informações (via Js) -->
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js" defer></script>
+
+  </body>
+</html>

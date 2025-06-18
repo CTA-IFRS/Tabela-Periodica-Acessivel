@@ -2913,13 +2913,6 @@ $(document).ready(function () {
             vizualizacaoAtual = 'grid';
         }
 
-        //altera texto do btn
-        if (vizualizacaoAtual === 'grid') {
-            $(this).text('Alterar visualização para lista');
-        } else {
-            $(this).text('Alterar visualização para tabela');
-        }
-
         exibeTabela(filtroAtual);
     });
 
@@ -3034,13 +3027,13 @@ $(document).ready(function () {
     // Lógica para alterar a página para alto contraste
     let temaAtual = 'normal';
     $('#toggleThemeBtn').on('click', function() {
-        const textoAtual = $(this).text();
+        const textoAtual = $('#themeText').text().trim();
         if (textoAtual === 'Trocar para Alto Contraste') { // esta no tema normal e troca para alto contraste
-            $(this).text('Trocar para Tema Normal'); // troca o texto do botão
+            $('#themeText').text('Trocar para Tema Normal'); // troca o texto do botão
             $('body').addClass('highContrast'); // troca a classe do body para alto contraste
             temaAtual = 'highcontrast';
         } else { // esta no alto contraste e troca para normal
-            $(this).text('Trocar para Alto Contraste'); // troca o texto do botão
+            $('#themeText').text('Trocar para Alto Contraste'); // troca o texto do botão
             $('body').removeClass('highContrast'); // troca a classe do body para voltar ao normal
             temaAtual = 'normal';
         }
@@ -3057,7 +3050,7 @@ $(document).ready(function () {
                 //se a série for vazia (todos) ou se for de determinada série
                 const igualSerie = serieValor === "" || el.serie === serieValor;
 
-                //se o nome for vazio (todos) ou se for o texto dizitado (ignora maiúscula/minúscula)
+                //se o nome for vazio (todos) ou se for o texto digitado (ignora maiúscula/minúscula)
                 const igualNome = valorNome === "" || el.nome.toLowerCase().includes(valorNome);
 
                 //se o simbolo for vazio (todos) ou se for texto do input
