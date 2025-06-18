@@ -2893,35 +2893,23 @@ const elementos =
     },
 ];
 
-let vizualizacaoAtual = 'grid';
+let vizualizacaoAtual = 'grid'; // valor inicial padrão
 let filtroAtual = elementos.slice();
 
-//se o documento estiver carregado
-$(document).ready(function () {
-    //adiciona as séries no select do filtro
-    const seriesKeys = Object.keys(series).sort();
-    seriesKeys.forEach(serie => {
-        $('#filtroSerie').append(`<option value="${serie}">${serie}</option>`);
+    $(document).ready(function () {
+        const seriesKeys = Object.keys(series).sort();
+        seriesKeys.forEach(serie => {
+            $('#filtroSerie').append(`<option value="${serie}">${serie}</option>`);
+        });
+
+        $('#toggleViewBtn').on('click', function (e) {
+            e.preventDefault();
+            vizualizacaoAtual = $('#visualizacao').val(); // <-- valor atualizado no clique
+            exibeTabela(filtroAtual);
     });
 
-    //muda a visualização da tabela entre grid e lista
-    $('#toggleViewBtn').on('click', function () {
-        //caso já esteja como grid, mude para lista e vice versa
-        if (vizualizacaoAtual === 'grid') {
-            vizualizacaoAtual = 'list';
-        } else {
-            vizualizacaoAtual = 'grid';
-        }
-
-        exibeTabela(filtroAtual);
-    });
-
-    //função para exibir os elementos
     function exibeTabela(filtrados = elementos) {
-        //prepara o modo de visualização Grid
         const $grid = $(".periodic-table").empty().toggleClass("d-none", vizualizacaoAtual === 'list');
-
-        //prepara o modo de visualização Lista
         const $list = $(".list-view").empty().toggleClass("d-none", vizualizacaoAtual === 'grid');
 
         //para cada elemento, exiba...
