@@ -200,8 +200,11 @@ nav.barra-acessibilidade ul div{
   margin-left: 0.2rem;
 }
 
-
-
+#btnPesquisa, #btnResetPesquisa{
+    height: calc(3.5rem + calc(var(--bs-border-width) * 2));
+    min-height: calc(3.5rem + calc(var(--bs-border-width) * 2));
+    line-height: 1.25;
+}
 
 
 
@@ -367,4 +370,8 @@ nav.barra-acessibilidade ul div{
 .highContrast select option {
   background-color: black;
   color: #FFFFFF;
+}
+
+.highContrast .elemento small {
+    color: #000000;
 }

@@ -2961,11 +2961,10 @@ let filtroAtual = elementos.slice();
 
 
         //grava onde está o foco
-        if (filtrados.length === 1) {
-            const focusTarget = vizualizacaoAtual === 'grid' ? $grid.find(".elemento") : $list.find(".list-group-item");
-
-            focusTarget?.focus();
-        }
+        // if (filtrados.length === 1) {
+        //     const focusTarget = vizualizacaoAtual === 'grid' ? $grid.find(".elemento") : $list.find(".list-group-item");
+        //     focusTarget?.focus();
+        // }
     }
 
 
@@ -3029,27 +3028,33 @@ let filtroAtual = elementos.slice();
         exibeTabela(filtroAtual); // chamada para redesenhar os elementos com o novo tema
     });
 
-    function elementosFiltrados() {
-        const serieValor = filtroSerie.value;
-        const valorNome = nomeFiltro.value.trim().toLowerCase();
-        const valorSimbolo = nomeFiltro.value.trim().toLowerCase();
+        function elementosFiltrados() {
+            const serieValor = filtroSerie.value;
+            const valorBusca = nomeFiltro.value.trim().toLowerCase();
 
             filtroAtual = elementos.filter(el => {
-                //se a série for vazia (todos) ou se for de determinada série
-                const igualSerie = serieValor === "" || el.serie === serieValor;
+            const igualSerie = serieValor === "" || el.serie === serieValor;
 
-                //se o nome for vazio (todos) ou se for o texto digitado (ignora maiúscula/minúscula)
-                const igualNome = valorNome === "" || el.nome.toLowerCase().includes(valorNome);
+            let condicaoNomeOuSimbolo = true;
 
-                //se o simbolo for vazio (todos) ou se for texto do input
-                const igualSimbolo = valorSimbolo === "" || el.simbolo.toLocaleLowerCase().includes(valorSimbolo);
+            if (valorBusca !== "") {
+                if (valorBusca.length === 1) {
+                    // busca com 1 letra: símbolo deve ser exatamente igual
+                    condicaoNomeOuSimbolo = el.simbolo.toLowerCase() === valorBusca;
+                } else if (valorBusca.length === 2) {
+                    // busca com 2 letras: símbolo deve conter o valor
+                    condicaoNomeOuSimbolo = el.simbolo.toLowerCase().includes(valorBusca);
+                } else {
+                    // 3 ou mais letras: busca no nome
+                    condicaoNomeOuSimbolo = el.nome.toLowerCase().includes(valorBusca);
+                }
+            }
 
-                return (igualSerie && igualNome) || (igualSerie && igualSimbolo);
+            return igualSerie && condicaoNomeOuSimbolo;
             });
 
-        exibeTabela(filtroAtual);
-    }
-
+            exibeTabela(filtroAtual);
+        }
 
     document.getElementById('nomeFiltro').addEventListener('keydown', function (event) {
         const tipoPesquisa = document.getElementById('switchPesquisa').checked;
@@ -3076,7 +3081,15 @@ let filtroAtual = elementos.slice();
         exibeTabela(filtroAtual);
     })
 
-    $('#filtroSerie').on('change', () => elementosFiltrados());
+
+    $('#filtroSerie').on('change', function () {
+        const buscaAoVivo = document.getElementById('switchPesquisa').checked;
+        if (buscaAoVivo) {
+            elementosFiltrados();
+        }
+    });
+
+
     $('#nomeFiltro').on('input', function () {
         if (document.getElementById('switchPesquisa').checked) {
             elementosFiltrados();
