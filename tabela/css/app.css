@@ -218,7 +218,10 @@ nav.barra-acessibilidade ul div{
     padding-left: 0.5rem;
 }
 
-
+.elemento:hover{
+  filter: brightness(70%);
+  transition: filter 0.2s ease-in-out;
+}
 
 
 .highContrast,
