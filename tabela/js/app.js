@@ -2972,8 +2972,30 @@ let filtroAtual = elementos.slice();
         //elemento acionado -> elemento que deve retirar os dados
         elementoFonte = document.activeElement;
 
+        $('#elementHeaderDetails').css({
+            'background-color': series[elemento.serie]?.color?.[temaAtual]?.bgColor || "#ccc",
+            'color': series[elemento.serie]?.color?.[temaAtual]?.color || "#000"
+        });
+
+
         //texto da modal (header)
-        $('#elementModalLabel').text(`${elemento.nome} (${elemento.simbolo})`);
+        $('#elementModalLabel').html(`
+            ${elemento.nome} (${elemento.simbolo})
+            <div>
+                ${elemento.numero}
+            </div>    
+        
+            <div>
+                <b>Massa Atômica:</b> ${elemento.massa}
+                <b>Série:</b> ${elemento.serie}
+            </div>
+
+            <div>
+                <b>Grupo:</b> ${elemento.grupo}
+                <b>Período:</b> ${elemento.periodo}
+            </div>
+        `);
+
 
         //conteúdo interno (caixa)
         $('#elementDetails').html(`
