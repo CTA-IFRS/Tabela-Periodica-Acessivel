@@ -85,14 +85,18 @@
           <li><a href="#elemento55" accesskey="8"> <small> Ir para o período 6</small> </a></li> 
           <li><a href="#elemento87" accesskey="9"> <small> Ir para o período 7</small> </a></li> 
         </ul>
-        <form action="#" id="">
-            <label for="visualizacao">Modo de visualização: </label>
-            <select name="visualizacao" id="visualizacao">
+        <div class="d-flex align-items-end gap-2" id="optionsView">
+          <div class="form-floating" style="width: 8rem;">
+            <select class="form-select" id="visualizacao" name="visualizacao" aria-label="Selecione o tipo de visualização">
               <option value="grid">Tabela</option>
               <option value="list">Lista</option>
             </select>
-            <button id="toggleViewBtn">Ok</button>
-          </form>
+            <label for="visualizacao">Visualização</label>
+          </div>
+
+          <button id="toggleViewBtn" class="btn btn-primary">Ok</button>
+        </div>
+
       </div>
     </header>
 

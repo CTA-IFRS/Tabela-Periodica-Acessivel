@@ -2979,21 +2979,35 @@ let filtroAtual = elementos.slice();
 
 
         //texto da modal (header)
-        $('#elementModalLabel').html(`
-            ${elemento.nome} (${elemento.simbolo})
-            <div>
-                ${elemento.numero}
-            </div>    
-        
-            <div>
-                <b>Massa Atômica:</b> ${elemento.massa}
-                <b>Série:</b> ${elemento.serie}
-            </div>
+        $('#elementHeaderDetails').html(`
+            
+                <div class="col-5 text-start d-flex flex-column gap-5">
+                    <span class="fs-4 fw-bold">${elemento.numero}</span>
 
-            <div>
-                <b>Grupo:</b> ${elemento.grupo}
-                <b>Período:</b> ${elemento.periodo}
-            </div>
+                    <div class="d-flex flex-column">
+                        <span class="fs-6"> <b>Massa atômica: </b> ${elemento.massa}</span>
+                        <span class="fs-6"> <b>Série: </b> ${elemento.serie}</span>
+                    </div>
+                </div>
+
+                
+                <div class="col-2 text-center">
+                    <span class="fs-1 fw-bold overflow-hidden">${elemento.simbolo}</span>
+                </div>
+
+                
+                <div class="col-5 d-flex flex-column text-end gap-5 m-0">
+                    <div class="d-flex flex-column">
+                        <span class="fs-6"><b>Período:</b> ${elemento.periodo}</span>
+                        <span class="fs-6"><b>Grupo:</b> ${elemento.grupo}</span>
+                    </div>
+
+                    <span class="fs-4"><b>Nome:</b> ${elemento.nome}</span>
+                </div>
+
+           
+
+
         `);
 
 

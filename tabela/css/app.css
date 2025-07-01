@@ -70,23 +70,30 @@
     min-height: 100vh;  
 }
 
-.modal-header{
-    display: flex;
-    justify-content: space-between;
+
+#elementDetails ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
 }
 
-.modal-content button{
-    border: solid 2px black;
-    border-radius: 5px;
-    color: black;
+#elementDetails li {
+    margin-bottom: .5rem;
+}
+
+.modal-content button {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
     font-weight: bold;
-    background-color: white;
-    transition: background-color 0.2s;
+    color: #000;
+    cursor: pointer;
 }
 
-.modal-content button:hover{
-    background-color: rgba(138, 138, 138, 0.616);
+.modal-content button:hover {
+    color: #333;
 }
+
 
 .tittle{
     display: flex;
@@ -190,6 +197,28 @@ nav.barra-acessibilidade ul div{
     gap: 1rem;
 }
 
+
+
+#btnPesquisa, #btnResetPesquisa{
+    height: calc(3.5rem + calc(var(--bs-border-width) * 2));
+    min-height: calc(3.5rem + calc(var(--bs-border-width) * 2));
+    line-height: 1.25;
+}
+
+#containerTable {
+   margin-top: 2rem; 
+}
+
+.elemento:hover{
+  filter: brightness(70%);
+  transition: filter 0.2s ease-in-out;
+}
+
+#optionsView{
+    padding-left: 19rem;
+}
+
+
 .badge {
   display: inline-block;
   padding: 0.25em 0.4em;
@@ -204,34 +233,12 @@ nav.barra-acessibilidade ul div{
   margin-left: 0.2rem;
 }
 
-#btnPesquisa, #btnResetPesquisa{
-    height: calc(3.5rem + calc(var(--bs-border-width) * 2));
-    min-height: calc(3.5rem + calc(var(--bs-border-width) * 2));
-    line-height: 1.25;
+
+
+.highContrast input[type="checkbox"]:not(:checked) {
+    background-color: red !important;
+    border-color: #FFFFFF !important;
 }
-
-#containerTable {
-   margin-top: 5rem; 
-}
-
-#periodos + form{
-    padding-left: 0.5rem;
-}
-
-.elemento:hover{
-  filter: brightness(70%);
-  transition: filter 0.2s ease-in-out;
-}
-
-
-
-
-
-
-
-
-
-
 
 
 .highContrast,
