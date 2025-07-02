@@ -1,3 +1,7 @@
+*{
+    padding: 0;
+}
+
 .periodic-wrapper 
 {
     overflow-x: auto;
@@ -119,6 +123,7 @@
     display: flex;
     flex-direction: row;
     gap: 1rem;
+    justify-content: end;
 }
 
 #formPesquisa {
@@ -176,7 +181,7 @@ nav.barra-acessibilidade a:hover{
 
 
 nav.barra-acessibilidade ul{
-    margin: 0 1rem 0 1rem;
+    margin: 0 .5rem 0 .5rem;
     padding: 0;
     background-color: #D8D8D8;
     display: flex;
@@ -199,14 +204,14 @@ nav.barra-acessibilidade ul div{
 
 
 
-#btnPesquisa, #btnResetPesquisa{
+#btnPesquisa, #btnResetPesquisa, #toggleViewBtn{
     height: calc(3.5rem + calc(var(--bs-border-width) * 2));
     min-height: calc(3.5rem + calc(var(--bs-border-width) * 2));
     line-height: 1.25;
 }
 
 #containerTable {
-   margin-top: 2rem; 
+   margin-top: 1.5rem; 
 }
 
 .elemento:hover{
@@ -215,7 +220,7 @@ nav.barra-acessibilidade ul div{
 }
 
 #optionsView{
-    padding-left: 19rem;
+    padding-left: 19.4rem;
 }
 
 
@@ -355,6 +360,11 @@ nav.barra-acessibilidade ul div{
     transition: background-color 0.2s;
 }
 
+.highContrast .modal-content button:focus{
+    transition: background-color 0.2s;
+    background-color: rgba(255, 0, 0, 0.479);
+}
+
 .highContrast .modal-content button:hover{
     background-color: rgba(255, 0, 0, 0.479);
 }
@@ -390,7 +400,6 @@ nav.barra-acessibilidade ul div{
   color: #FFFFFF !important;
   border-color: #FFFFFF !important;
   box-shadow: 0 0 0 0.2rem #777d83 !important;
-  padding: .25rem;
 }
 
 .highContrast select option {

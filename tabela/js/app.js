@@ -2992,17 +2992,20 @@ let filtroAtual = elementos.slice();
 
                 
                 <div class="col-2 text-center">
-                    <span class="fs-1 fw-bold overflow-hidden">${elemento.simbolo}</span>
+                    <span class="fs-1 fw-bold">${elemento.simbolo}</span>
                 </div>
 
                 
                 <div class="col-5 d-flex flex-column text-end gap-5 m-0">
+                    <div>
+                        <button class="text-end" type="button" data-bs-dismiss="modal" aria-label="Fechar">X</button>    
+                    </div>
+
                     <div class="d-flex flex-column">
                         <span class="fs-6"><b>Período:</b> ${elemento.periodo}</span>
                         <span class="fs-6"><b>Grupo:</b> ${elemento.grupo}</span>
+                        <span class="fs-6"><b>Nome:</b> ${elemento.nome}</span>
                     </div>
-
-                    <span class="fs-4"><b>Nome:</b> ${elemento.nome}</span>
                 </div>
 
            
