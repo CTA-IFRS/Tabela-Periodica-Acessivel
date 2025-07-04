@@ -56,7 +56,7 @@ const series =
     
     "Halogênio": { // cores certas
         color: {
-            normal:{bgColor:"#248BCC",color:"#000000"},
+            normal:{bgColor:"#67B4E4",color:"#000000"},
             highcontrast:{bgColor:"#B4DBF4", color:"#000000"},}, 
         elements: [] },
 };
@@ -2998,7 +2998,7 @@ let filtroAtual = elementos.slice();
                 
                 <div class="col-5 d-flex flex-column text-end gap-5 m-0">
                     <div>
-                        <button class="text-end" type="button" data-bs-dismiss="modal" aria-label="Fechar">X</button>    
+                        <button class="text-end p-1" type="button" data-bs-dismiss="modal" aria-label="Fechar">X</button>    
                     </div>
 
                     <div class="d-flex flex-column">

@@ -50,12 +50,12 @@
           <div class="searchOptions container px-0">
             <form id="formPesquisa" action="#" class="d-flex flex-wrap gap-2 align-items-end">
 
-              <div class="form-floating flex-fill" style="min-width: 200px;">
+              <div class="form-floating flex-fill" >
                 <input type="text" class="form-control" id="nomeFiltro"  placeholder="">
                 <label for="nomeFiltro">Nome ou Símbolo</label>
               </div>
 
-              <div class="form-floating" style="min-width: 180px;">
+              <div class="form-floating">
                 <select class="form-select" id="filtroSerie" aria-label="Filtro por série">
                   <option value="">Todos</option>
                 </select>
@@ -63,11 +63,11 @@
               </div>
 
               <div>
-                <button type="button" class="btn btn-primary bi bi-search" id="btnPesquisa"></button>
+                <button type="button" class="btn btn-primary bi bi-search" id="btnPesquisa" aria-label="Pesquisar"></button>
               </div>
 
               <div>
-                <button type="reset" class="btn btn-outline-primary bi bi-trash" id="btnResetPesquisa"></button>
+                <button type="reset" class="btn btn-outline-primary bi bi-trash" id="btnResetPesquisa" aria-label="Remover Filtros"></button>
               </div>
 
             </form>
@@ -86,8 +86,8 @@
           <li><a href="#elemento55"> <small> Ir para o período 6</small> </a></li> 
           <li><a href="#elemento87"> <small> Ir para o período 7</small> </a></li> 
         </ul>
-        <div class="d-flex align-items-end gap-2" id="optionsView">
-          <div class="form-floating" style="width: 8rem;">
+        <div class="d-flex align-items-end gap-2 container" id="optionsView">
+          <div class="form-floating">
             <select class="form-select" id="visualizacao" name="visualizacao" aria-label="Selecione o tipo de visualização">
               <option value="grid">Tabela</option>
               <option value="list">Lista</option>
