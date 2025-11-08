@@ -2,11 +2,6 @@
     padding: 0;
 }
 
-.periodic-wrapper 
-{
-    overflow-x: auto;
-}
-
 .periodic-table 
 {
     display: grid;
@@ -104,7 +99,7 @@
     align-items: center;
 }
 
-.filters{
+.header{
     background-color: #F8F9FA;
     display: flex;
     flex-direction: row;
@@ -143,7 +138,6 @@
     display: flex;
     flex-direction: row;
     list-style-type: none;
-    background-color: #f5f5f5;
     gap: 1.875rem;
 }
 
@@ -154,11 +148,6 @@
 
 #periodos li:last-child{
     border: none !important;
-}
-
-#optionsView{
-    margin-top: 2.5rem;
-    margin-bottom: 2.5rem;
 }
 
 #periodos li a{
@@ -265,7 +254,7 @@ nav.barra-acessibilidade ul div{
 
 
 .highContrast,
-.highContrast .filters,
+.highContrast .header,
 .highContrast .barra-acessibilidade,
 .highContrast .barra-acessibilidade ul
 {
@@ -274,7 +263,7 @@ nav.barra-acessibilidade ul div{
 }
 
 .highContrast .barra-acessibilidade,
-.filters
+.highContrast .header
 {
     border-bottom: solid .1rem #FFFFFF;
 }

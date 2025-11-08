@@ -1,0 +1,254 @@
+:root {
+    --gray100: #F8F9FA;
+    --gray200: #E9ECEF;
+    --gray300: #DEE2E6;
+    --gray400: #CED4DA;
+    --gray500: #ADB5BD;
+    --gray600: #6C757D;
+    --gray700: #495057;
+    --gray800: #343A40;
+    --gray900: #212529;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+        
+body {
+    background-color: var(--gray100);
+}
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: "Atkinson Hyperlegible", sans-serif;
+    font-weight: 700;
+    color: var(--gray900);
+}
+.h1 {
+    font-size: 40px;
+}
+.h2 {
+    font-size: 32px;
+}
+.h3 {
+    font-size: 28px;
+}
+.h4 {
+    font-size: 24px;
+    margin-bottom: 0;
+}
+.h5 {
+    font-size: 20px;
+}
+.h6 {
+    font-size: 16px;
+}
+.btn {
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    text-transform: uppercase;
+    border-radius: 50rem;
+    width: auto !important;
+    padding: 10px 26px !important;
+    min-height: 48px;
+    align-items: center;
+    display: flex;
+    gap: 8px;
+}
+.header {
+    background-color: #f2f2f2;
+    height: 60px;
+}
+.busca-visualizacao {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--gray900);
+    padding-top: 15px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-bottom: 15px;
+}
+nav.barra-acessibilidade,
+nav.barra-acessibilidade ul {
+    background-color: #e7e7e9;
+}
+.barra-acessibilidade a {
+    font-family: "Nunito", sans-serif;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+}
+.barra-acessibilidade button,
+.barra-acessibilidade .form-check-label {
+    background-color: transparent;
+    font-family: "Nunito", sans-serif;
+    font-size: 14px;
+    color: #000;
+}
+.form-switch {
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+    color: #fff;
+}
+.barra-acessibilidade #switchPesquisa {
+    margin-top: 0;
+}
+.barra-acessibilidade ul li {
+    display: flex;
+    align-items: center;
+}
+#containerTable {
+    max-width: 1450px;
+    padding-bottom: 2rem;
+}
+#formPesquisa,
+#optionsView {
+    background-color: #fff;
+    border-radius: 50px;
+    display: flex;
+    height: 60px;
+    gap: 2px;
+    padding-right: 6px;
+}
+#nomeFiltro {
+    background-color: transparent;
+    border: none;
+    border-radius: 50px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    padding-left: 22px;
+}
+.label-nome {
+    padding-left: 22px !important;
+}
+#filtroSerie {
+    border-radius: 0;
+    border: 0;
+}
+#formPesquisa button,
+#toggleViewBtn {
+    border: 1px solid var(--gray800);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px !important;
+    height: 50px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    min-height: unset;
+    border-radius: 50px;
+    padding: 0 !important;
+    font-size: 17px;
+}
+#btnPesquisa,
+#toggleViewBtn {
+    background-color: var(--gray800);
+    color: #fff;
+}
+#btnResetPesquisa {
+    color: var(--gray800);
+    margin-left: 4px;
+}
+#formPesquisa button:hover,
+#formPesquisa button:focus,
+#toggleViewBtn:hover,
+#toggleViewBtn:focus {
+    background-color: var(--gray900);
+    border: 1px solid var(--gray900);
+    color: #fff !important;
+}
+#formPesquisa .barra {
+    background-color: var(--gray400);
+    display: flex;
+    width: 1px;
+    height: 50px;
+}
+.form-floating > label {
+    color: var(--gray700);
+}
+#periodos {
+    padding: 10px;
+    margin-bottom: 0;
+}
+#periodos li {
+    border-right: solid 2px var(--gray600);
+}
+#periodos li a {
+    font-family: "Nunito", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--gray900);
+}
+.elemento {
+    border: 0;
+}
+.elemento:hover,
+.elemento:focus {
+    filter: brightness(120%);
+    position: relative;
+    margin: -15px;
+    z-index: 10;
+    box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.15);
+    border: 2px solid #000;
+}
+.elemento:hover span.simbolo,
+.elemento:focus span.simbolo {
+  font-size: 1.5rem;
+}
+.elemento:hover small,
+.elemento:focus small {
+  font-size: 0.9rem;
+}
+.elemento:hover div:nth-child(2),
+.elemento:focus div:nth-child(2) {
+  font-size: 1rem;
+}
+.periodic-table {
+  grid-auto-rows: minmax(75px, 1fr);
+}
+.periodos {
+    opacity: 0;
+    position: relative;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    height: 0;
+}
+.periodos:focus-within {
+    opacity: 1;
+    z-index: 1;
+    height: auto;
+}
+#visualizacao {
+    background-color: transparent;
+    border: none;
+    border-radius: 50px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    padding-left: 22px;
+    width: 150px;
+}
+#optionsView label {
+    padding-left: 22px;
+}
+.sobreBtn {
+    background-color: var(--gray100);
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--gray900);
+    border: 2px solid var(--gray900);
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 30px;
+}
+.sobreBtn:hover {
+    background-color: #fff;
+    color: var(--gray900);
+    text-decoration: none;
+}
+#modalSobre .modal-dialog {
+    max-width: 700px;
+}
+#modalSobre .modal-footer {
+    justify-content: center;
+}

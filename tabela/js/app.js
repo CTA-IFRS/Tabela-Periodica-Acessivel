@@ -8,13 +8,13 @@ const series =
     
     "Não Metal": { // cores certas
         color:{
-            normal:{bgColor:"#72E534", color:"#000000"},
+            normal:{bgColor:"#AD9B65", color:"#000000"},
             highcontrast:{bgColor:"#ACFF80", color:"#000000"},}, 
         elements: [] },
     
     "Gás Nobre": { // cores certas
         color:{
-            normal:{bgColor:"#5914C0", color:"#FFFFFF"},
+            normal:{bgColor:"#CF4DFF", color:"#000000"},
             highcontrast:{bgColor:"#C7AAF4",color:"#000000"},}, 
         elements: [] },
     
@@ -32,25 +32,25 @@ const series =
     
     "Metal de Transição": { // cores certas
         color:{
-            normal:{bgColor:"#A21010",color:"#FFFFFF"},
+            normal:{bgColor:"#FF5E5E",color:"#000000"},
             highcontrast:{bgColor:"#F98B8B", color:"#000000"},}, 
         elements: [] },
     
     "Outros Metais": { // cores certas
         color: {
-            normal:{bgColor:"#48DB9B",color:"#000000"},
+            normal:{bgColor:"#72E534",color:"#000000"},
             highcontrast:{bgColor:"#BBF2DB", color:"#000000"},}, 
         elements: [] },
     
     "Lantanídeo": { // cores certas
         color: {
-            normal:{bgColor:"#FB7ED4",color:"#000000"},
+            normal:{bgColor:"#48DB9B",color:"#000000"},
             highcontrast:{bgColor:"#FFC2EC", color:"#000000"},}, 
         elements: [] },
     
     "Actinídeo": { // cores certas
         color: {
-            normal:{bgColor:"#CF4DFF",color:"#000000"},
+            normal:{bgColor:"#FB7ED4",color:"#000000"},
             highcontrast:{bgColor:"#ECB8FF", color:"#000000"},}, 
         elements: [] },
     
@@ -2992,13 +2992,13 @@ let filtroAtual = elementos.slice();
 
                 
                 <div class="col-2 text-center">
-                    <span class="fs-1 fw-bold">${elemento.simbolo}</span>
+                    <h2 class="fs-1 fw-bold">${elemento.simbolo}</h2>
                 </div>
 
                 
                 <div class="col-5 d-flex flex-column text-end gap-5 m-0">
                     <div>
-                        <button class="text-end p-1" type="button" data-bs-dismiss="modal" aria-label="Fechar">X</button>    
+                        <button class="text-end p-1" type="button" data-bs-dismiss="modal" aria-label="Fechar elemento">X</button>    
                     </div>
 
                     <div class="d-flex flex-column">
@@ -3055,7 +3055,7 @@ let filtroAtual = elementos.slice();
     $('#toggleThemeBtn').on('click', function() {
         const textoAtual = $('#themeText').text().trim();
         if (textoAtual === 'Trocar para Alto Contraste') { // esta no tema normal e troca para alto contraste
-            $('#themeText').text('Trocar para Tema Normal'); // troca o texto do botão
+            $('#themeText').text('Trocar para Contraste Claro'); // troca o texto do botão
             $('body').addClass('highContrast'); // troca a classe do body para alto contraste
             temaAtual = 'highcontrast';
         } else { // esta no alto contraste e troca para normal

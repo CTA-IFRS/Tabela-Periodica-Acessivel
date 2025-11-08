@@ -1,143 +1,187 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Tabela Peri&oacute;dica Acess&iacute;vel</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/app.css" rel="stylesheet" />
+  <title>Tabela Peri&oacute;dica Acess&iacute;vel - CTA-IFRS</title>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-  
-  </head>
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <link href="css/app.css" rel="stylesheet" />
 
-  <body class="body">
-    <header>
-      <!-- filtros primeira parte -->
-      <nav class="barra-acessibilidade" aria-label="Menu de acessibilidade">
-        <ul>
-          <div>
-            <li><a href="#conteudoPrincipal" accesskey="1"> <small>Ir para o conte&uacute;do<span class="badge">1</span></small> </a></li>
-            <li><a href="#periodos" accesskey="2"> <small>Ir para menu<span class="badge">2</span></small> </a></li> 
-            <li><a href="#opcoes" accesskey="3"> <small>Ir para opç&otilde;es de busca e filtro<span class="badge">3</span></small> </a></li>   
-          </div>
-      
-          <div>
-            <li>
-              <button id="toggleThemeBtn"> <i id="themeIcon" class="bi bi-circle-half">&nbsp;</i> <span id="themeText">Trocar para Alto Contraste</span></button>
-            </li>
-          </div>
-        </ul>
-      </nav>
-      
-      <!-- filtros segunda parte -->
-      <div class="filters"> 
-        <div class="tittle">
-          <h1>Tabela Peri&oacute;dica Acess&iacute;vel</h1>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link href="css/custom.css" rel="stylesheet" />
+
+</head>
+
+<body class="body">
+  <header>
+    <!-- filtros primeira parte -->
+    <nav class="barra-acessibilidade" aria-label="Menu de acessibilidade">
+      <ul>
+        <div>
+          <li><a href="#conteudoPrincipal" accesskey="1"> Ir para o conte&uacute;do<span class="badge">1</span> </a>
+          </li>
+          <li><a href="#periodos" accesskey="2"> Ir para menu<span class="badge">2</span> </a></li>
+          <li><a href="#opcoes" accesskey="3"> Ir para opç&otilde;es de busca e filtro<span class="badge">3</span> </a>
+          </li>
         </div>
-
-        <div id="opcoes">
-          <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" role="switch" id="switchPesquisa">
-            <label class="form-check-label" for="switchPesquisa">Busca ao vivo</label>
-          </div>        
-          
-
-          <!-- Filtros -->
-          <div class="searchOptions container px-0">
-            <form id="formPesquisa" action="#" class="d-flex flex-wrap gap-2 align-items-end">
-
-              <div class="form-floating flex-fill" >
-                <input type="text" class="form-control" id="nomeFiltro"  placeholder="">
-                <label for="nomeFiltro">Nome ou Símbolo</label>
-              </div>
-
-              <div class="form-floating">
-                <select class="form-select" id="filtroSerie" aria-label="Filtro por série">
-                  <option value="">Todos</option>
-                </select>
-                <label for="filtroSerie">Filtrar por</label>
-              </div>
-
-              <div>
-                <button type="button" class="btn btn-primary bi bi-search" id="btnPesquisa" aria-label="Pesquisar"></button>
-              </div>
-
-              <div>
-                <button type="reset" class="btn btn-outline-primary bi bi-trash" id="btnResetPesquisa" aria-label="Remover Filtros"></button>
-              </div>
-
-            </form>
-          </div>
-
+        <div>
+          <li>
+            <button id="toggleThemeBtn"> <i id="themeIcon" class="bi bi-circle-half">&nbsp;</i> <span id="themeText">Trocar para Alto Contraste</span></button>
+          </li>
         </div>
+      </ul>
+    </nav>
+    <div class="header">
+      <div class="tittle">
+        <h1 class="h4">Tabela Peri&oacute;dica Acess&iacute;vel</h1>
       </div>
-
-      <div>
-        <ul id="periodos">
-          <li><a href="#elemento1">  <small> Ir para o período 1</small> </a></li> 
-          <li><a href="#elemento3">  <small> Ir para o período 2</small> </a></li> 
-          <li><a href="#elemento11"> <small> Ir para o período 3</small> </a></li> 
-          <li><a href="#elemento19"> <small> Ir para o período 4</small> </a></li> 
-          <li><a href="#elemento37"> <small> Ir para o período 5</small> </a></li> 
-          <li><a href="#elemento55"> <small> Ir para o período 6</small> </a></li> 
-          <li><a href="#elemento87"> <small> Ir para o período 7</small> </a></li> 
-        </ul>
-        <div class="d-flex align-items-end gap-2 container" id="optionsView">
-          <div class="form-floating">
-            <select class="form-select" id="visualizacao" name="visualizacao" aria-label="Selecione o tipo de visualização">
-              <option value="grid">Tabela</option>
-              <option value="list">Lista</option>
-            </select>
-            <label for="visualizacao">Visualização</label>
-          </div>
-
-          <button id="toggleViewBtn" class="btn btn-primary" aria-label="Alterar">Ok</button>
-        </div>
-
-      </div>
-    </header>
-
-    <div class="container" id="containerTable">
-      <!-- Tabela Periodica -->
-      <div class="periodic-wrapper" id="conteudoPrincipal">
-        <div class="periodic-table" role="table" aria-label="Elementos da tabela peri&oacute;dica">
-          <!-- Elementos por Grid (via Js) -->
-        </div>
-
-        <div class="list-view d-none list-group list-group-checkable d-grid gap-2 border-0" role="list">
-          <!-- Elementos por Lista (via Js) -->
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="elementModal" tabindex="-1" aria-labelledby="elementModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header" id="elementHeaderDetails">
-            <h5 class="modal-title" id="elementModalLabel">Informa&ccedil;&otilde;es do elemento</h5>
-            <button type="button" data-bs-dismiss="modal" aria-label="Fechar">X</button>
-
-
-
-          </div>
-
-          <div class="modal-body">
-            <p id="elementDetails">
-              <!-- informações (via Js) -->
-            </p>
+      <button type="button" class="sobreBtn" data-bs-toggle="modal" data-bs-target="#modalSobre">Sobre</button>
+      <div id="modalSobre" class="modal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title h5">Sobre (Modal ainda não está pronta)</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+            </div>
+            <div class="modal-body">
+              <p>A Tabela Periódica Acessível foi desenvolvida para oferecer uma experiência inclusiva a todas as
+                pessoas, inclusive pessoas com deficiência e foi implementada com recursos que facilitam a navegação e a
+                pesquisa.</p>
+              <p>Você pode buscar os elementos pelo nome completo ou pelo símbolo químico, como “Be” ou “Berílio”.
+                Também é possível filtrar os elementos por séries químicas ou navegar utilizando âncoras que levam
+                diretamente a cada período da tabela, ou seja, às linhas que indicam os níveis de energia dos átomos.
+              </p>
+              <p>A visualização pode ser alternada entre tabela completa ou lista. Ao selecionar um elemento e clicar
+                nele, são exibidos seus detalhes, incluindo número atômico, massa, símbolo e outras informações
+                relevantes. O recurso de busca em tempo real permite que os resultados apareçam automaticamente enquanto
+                você digita, tornando a consulta mais rápida e dinâmica.</p>
+              <strong>Legenda: (Preciso arrumar, acho que vou colocar um summary, as cores também ainda não estão
+                corretas)</strong>
+              <ul>
+                <li>⬜ Cinza → Hidrogênio (categoria única)</li>
+                <li>🟧 Amarelo-alaranjado → Metais alcalinos e metais alcalino-terrosos</li>
+                <li>🟥 Vermelho / Vinho → Metais de transição</li>
+                <li>🟪 Roxo-claro a rosa → Lantanídeos e actinídeos</li>
+                <li>🟩 Verde-claro → Metais representativos (bloco p)</li>
+                <li>🟩 Verde-escuro → Não metais</li>
+                <li>🟦 Azul-claro → Gases nobres</li>
+                <li>🟦 Azul-esverdeado → Halogênios</li>
+                <li>🟫 Lilás / Roxo → Elementos superpesados</li>
+              </ul>
+            </div>
+            <div class="modal-footer">
+              <a href="https://cta.ifrs.edu.br" class="mr-4">
+                <img src="../img/logo-cta.png" width="160px"
+                  alt="Logo do CTA - Centro Tecnológico de Acessibilidade do IFRS" />
+              </a>
+              <a href="https://ifrs.edu.br">
+                <img src="../img/logo-ifrs.png" width="160px"
+                  alt="Logo do IFRS - Instituto Federal de Educação Ciência e Tecnologia do Rio Grande do Sul" />
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <div class="busca-visualizacao">
+      <div id="opcoes">
+        <!-- Filtros -->
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="switchPesquisa">
+          <label class="form-check-label" for="switchPesquisa">Busca em tempo real <span class="sr-only"> quando essa
+              opção está ativada, os resultados são carregados automaticamente.</span></label>
+        </div>
+        <div class="searchOptions">
+          <form id="formPesquisa" action="#" class="rounded-full">
+            <div class="form-floating flex-fill">
+              <input type="text" class="form-control" id="nomeFiltro" placeholder="">
+              <label for="nomeFiltro" class="label-nome">Nome ou Símbolo</label>
+            </div>
+            <span class="barra"></span>
+            <div class="form-floating">
+              <select class="form-select" id="filtroSerie" aria-label="Filtro por série">
+                <option value="">Todos</option>
+              </select>
+              <label for="filtroSerie">Filtrar por</label>
+            </div>
+            <div>
+              <button type="button" class="btn bi bi-search" id="btnPesquisa" aria-label="Pesquisar"></button>
+            </div>
+            <div>
+              <button type="reset" class="btn bi bi-trash" id="btnResetPesquisa" aria-label="Remover Filtros"></button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="d-flex align-items-center gap-2" id="optionsView">
+        <div class="form-floating">
+          <select class="form-select" id="visualizacao" name="visualizacao"
+            aria-label="Selecione o tipo de visualização">
+            <option value="grid">Tabela</option>
+            <option value="list">Lista</option>
+          </select>
+          <label for="visualizacao">Visualização</label>
+        </div>
+        <button id="toggleViewBtn" class="btn" aria-label="Alterar visualização">Ok</button>
+      </div>
+    </div>
+    <div class="periodos">
+      <ul id="periodos">
+        <li><a href="#elemento1"> Ir para o período 1</a></li>
+        <li><a href="#elemento3"> Ir para o período 2</a></li>
+        <li><a href="#elemento11"> Ir para o período 3</a></li>
+        <li><a href="#elemento19"> Ir para o período 4</a></li>
+        <li><a href="#elemento37"> Ir para o período 5</a></li>
+        <li><a href="#elemento55"> Ir para o período 6</a></li>
+        <li><a href="#elemento87"> Ir para o período 7</a></li>
+      </ul>
+    </div>
+  </header>
 
-    <script src="js/jquery-3.7.1.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/app.js" defer></script>
+  <div class="container-fluid" id="containerTable">
+    <!-- Tabela Periodica -->
+    <div class="periodic-wrapper" id="conteudoPrincipal">
+      <div class="periodic-table" role="table" aria-label="Elementos da tabela peri&oacute;dica">
+        <!-- Elementos por Grid (via Js) -->
+      </div>
 
-  </body>
+      <div class="list-view d-none list-group list-group-checkable d-grid gap-2 border-0" role="list">
+        <!-- Elementos por Lista (via Js) -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="elementModal" tabindex="-1" aria-labelledby="elementModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header" id="elementHeaderDetails">
+          <h5 class="modal-title" id="elementModalLabel">Informa&ccedil;&otilde;es do elemento</h5>
+          <button type="button" data-bs-dismiss="modal" aria-label="Fechar">X</button>
+
+
+
+        </div>
+
+        <div class="modal-body">
+          <p id="elementDetails">
+            <!-- informações (via Js) -->
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/jquery-3.7.1.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/app.js" defer></script>
+
+</body>
+
 </html>
