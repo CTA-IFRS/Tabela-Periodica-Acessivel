@@ -2894,6 +2894,9 @@ const elementos =
 ];
 
 let vizualizacaoAtual = 'grid'; // valor inicial padrão
+if (window.innerWidth < 1000) {
+  vizualizacaoAtual = 'list';
+}
 let filtroAtual = elementos.slice();
 
     $(document).ready(function () {

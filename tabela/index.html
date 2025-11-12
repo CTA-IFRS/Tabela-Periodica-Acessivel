@@ -15,30 +15,36 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
     integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
   <link href="css/custom.css" rel="stylesheet" />
+  <link rel="icon" href="./favicon.png" type="image/png">
 
 </head>
 
 <body class="body">
   <header>
     <!-- filtros primeira parte -->
-    <nav class="barra-acessibilidade" aria-label="Menu de acessibilidade">
-      <ul>
-        <div>
-          <li><a href="#conteudoPrincipal" accesskey="1"> Ir para o conte&uacute;do<span class="badge">1</span> </a>
-          </li>
-          <li><a href="#periodos" accesskey="2"> Ir para menu<span class="badge">2</span> </a></li>
-          <li><a href="#opcoes" accesskey="3"> Ir para opç&otilde;es de busca e filtro<span class="badge">3</span> </a>
-          </li>
-        </div>
-        <div>
-          <li>
-            <button id="toggleThemeBtn"> <i id="themeIcon" class="bi bi-circle-half">&nbsp;</i> <span id="themeText">Trocar para Alto Contraste</span></button>
-          </li>
-        </div>
-      </ul>
+    <nav class="navbar navbar-expand-lg barra-acessibilidade" aria-label="Menu de acessibilidade">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+        aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="bi bi-list"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul>
+          <div>
+            <li><a href="#conteudoPrincipal" accesskey="1"> Ir para o conte&uacute;do<span class="badge">1</span> </a></li>
+            <li><a href="#periodos" accesskey="2"> Ir para menu<span class="badge">2</span> </a></li>
+            <li><a href="#opcoes" accesskey="3"> Ir para opç&otilde;es de busca e filtro<span class="badge">3</span> </a></li>
+          </div>
+          <div>
+            <li>
+              <button id="toggleThemeBtn"> <i id="themeIcon" class="bi bi-circle-half">&nbsp;</i> <span id="themeText">Trocar para Alto Contraste</span></button>
+            </li>
+          </div>
+        </ul>
+      </div>
     </nav>
     <div class="header">
       <div class="tittle">
+        <img src="../tabela/img/table-logo.png" height="50px" alt="logotipo Tabela Periódica Acessível">
         <h1 class="h4">Tabela Peri&oacute;dica Acess&iacute;vel</h1>
       </div>
       <button type="button" class="sobreBtn" data-bs-toggle="modal" data-bs-target="#modalSobre">Sobre</button>
@@ -46,8 +52,10 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title h5">Sobre (Modal ainda não está pronta)</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+              <h5 class="modal-title h5">Sobre</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                <i class="bi bi-x-lg"></i>
+              </button>
             </div>
             <div class="modal-body">
               <p>A Tabela Periódica Acessível foi desenvolvida para oferecer uma experiência inclusiva a todas as
@@ -61,19 +69,23 @@
                 nele, são exibidos seus detalhes, incluindo número atômico, massa, símbolo e outras informações
                 relevantes. O recurso de busca em tempo real permite que os resultados apareçam automaticamente enquanto
                 você digita, tornando a consulta mais rápida e dinâmica.</p>
-              <strong>Legenda: (Preciso arrumar, acho que vou colocar um summary, as cores também ainda não estão
-                corretas)</strong>
-              <ul>
-                <li>⬜ Cinza → Hidrogênio (categoria única)</li>
-                <li>🟧 Amarelo-alaranjado → Metais alcalinos e metais alcalino-terrosos</li>
-                <li>🟥 Vermelho / Vinho → Metais de transição</li>
-                <li>🟪 Roxo-claro a rosa → Lantanídeos e actinídeos</li>
-                <li>🟩 Verde-claro → Metais representativos (bloco p)</li>
-                <li>🟩 Verde-escuro → Não metais</li>
-                <li>🟦 Azul-claro → Gases nobres</li>
-                <li>🟦 Azul-esverdeado → Halogênios</li>
-                <li>🟫 Lilás / Roxo → Elementos superpesados</li>
-              </ul>
+              <details class="legenda-tabela">
+                <summary role="button"><strong>Legenda das cores da tabela</strong></summary>
+                <div class="mt-3">
+                  <ul>
+                    <li><span class="cor cor-hidrogenio"></span>Cinza: Hidrogênio (categoria única)</li>
+                    <li><span class="cor cor-metais-alcalinos"></span>Laranja: Metais alcalinos</li>
+                    <li><span class="cor cor-metais-alcalinos-terrosos"></span>Amarelo: Metais alcalino-terrosos</li>
+                    <li><span class="cor cor-metal-transicao"></span>Vermelho: Metais de transição</li>
+                    <li><span class="cor cor-lantanideos"></span>Verde-água: Lantanídeos</li>
+                    <li><span class="cor cor-actinideos"></span>Rosa: Actinídeos</li>
+                    <li><span class="cor cor-outros-metais"></span>Verde-claro: Outros metais</li>
+                    <li><span class="cor cor-nao-metais"></span>Marrom: Não metais</li>
+                    <li><span class="cor cor-halogenios"></span>Azul: Halogênios</li>
+                    <li><span class="cor cor-gases-nobres"></span>Roxo: Gases nobres</li>
+                  </ul>
+                </div>
+              </details>
             </div>
             <div class="modal-footer">
               <a href="https://cta.ifrs.edu.br" class="mr-4">
