@@ -346,6 +346,63 @@ nav button.navbar-toggler {
     padding-left: 0;
     padding-right: 0;
 }
+.highContrast nav.barra-acessibilidade ul li a,
+.highContrast #toggleThemeBtn {
+    color: #FFF;
+}
+.highContrast #toggleThemeBtn:hover {
+    background-color: transparent;
+    text-decoration: underline;
+}
+.highContrast .tittle img {
+    filter: brightness(100);
+}
+.highContrast .tittle h1 {
+    color: #fff;
+}
+.highContrast .busca-visualizacao {
+    background-color: #000;
+    border-bottom: 1px solid #fff;
+}
+.highContrast #formPesquisa, .highContrast #optionsView {
+    background-color: #000;
+    border: .1rem solid #FFFFFF !important;
+}
+.highContrast #nomeFiltro,
+.highContrast #filtroSerie,
+.highContrast #visualizacao {
+    border: 0 !important;
+}
+.highContrast .form-floating {
+    border-radius: 26px;
+}
+.highContrast #formPesquisa button,
+.highContrast #toggleViewBtn {
+    border: 1px solid #fff;
+}
+.highContrast #btnPesquisa,
+.highContrast #toggleViewBtn {
+    background-color: #fff;
+    color: #000;
+}
+.highContrast #btnResetPesquisa {
+    color: #fff;
+}
+.highContrast #formPesquisa button:hover,
+.highContrast #formPesquisa button:focus,
+.highContrast #toggleViewBtn:hover,
+.highContrast #toggleViewBtn:focus {
+    background-color: var(--gray100);
+    border: 1px solid var(--gray100);
+    color: #000 !important;
+}
+.highContrast nav button.navbar-toggler {
+    color: #fff;
+    border: 2px solid var(--gray100);
+}
+.highContrast nav button.navbar-toggler:hover {
+    color: #000;
+}
 @media (max-width: 992px) {
     #opcoes {
         flex-direction: column;

@@ -9,7 +9,7 @@ const series =
     "Não Metal": { // cores certas
         color:{
             normal:{bgColor:"#AD9B65", color:"#000000"},
-            highcontrast:{bgColor:"#ACFF80", color:"#000000"},}, 
+            highcontrast:{bgColor:"#C4B999", color:"#000000"},}, 
         elements: [] },
     
     "Gás Nobre": { // cores certas
@@ -39,13 +39,13 @@ const series =
     "Outros Metais": { // cores certas
         color: {
             normal:{bgColor:"#72E534",color:"#000000"},
-            highcontrast:{bgColor:"#BBF2DB", color:"#000000"},}, 
+            highcontrast:{bgColor:"#ACFF80", color:"#000000"},}, 
         elements: [] },
     
     "Lantanídeo": { // cores certas
         color: {
             normal:{bgColor:"#48DB9B",color:"#000000"},
-            highcontrast:{bgColor:"#FFC2EC", color:"#000000"},}, 
+            highcontrast:{bgColor:"#6BEAB3", color:"#000000"},}, 
         elements: [] },
     
     "Actinídeo": { // cores certas
