@@ -419,6 +419,12 @@ nav button.navbar-toggler {
 .highContrast #modalSobre .btn-close {
     filter: brightness(100);
 }
+.highContrast #periodos li a {
+    color: #fff;
+}
+.highContrast .form-floating {
+    background-color: transparent !important;
+}
 @media (max-width: 992px) {
     #opcoes {
         flex-direction: column;
