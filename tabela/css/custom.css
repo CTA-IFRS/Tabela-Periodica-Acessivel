@@ -346,6 +346,13 @@ nav button.navbar-toggler {
     padding-left: 0;
     padding-right: 0;
 }
+#modalSobre .btn-close,
+#elementHeaderDetails button {
+    opacity: 1;
+}
+#modalSobre img {
+    border-radius: 6px;
+}
 .highContrast nav.barra-acessibilidade ul li a,
 .highContrast #toggleThemeBtn {
     color: #FFF;
@@ -366,7 +373,7 @@ nav button.navbar-toggler {
 }
 .highContrast #formPesquisa, .highContrast #optionsView {
     background-color: #000;
-    border: .1rem solid #FFFFFF !important;
+    outline: .1rem solid #FFFFFF !important;
 }
 .highContrast #nomeFiltro,
 .highContrast #filtroSerie,
@@ -402,6 +409,15 @@ nav button.navbar-toggler {
 }
 .highContrast nav button.navbar-toggler:hover {
     color: #000;
+}
+.highContrast .form-select {
+    filter: brightness(5);
+}
+.highContrast #modalSobre .modal-title {
+    color: #fff;
+}
+.highContrast #modalSobre .btn-close {
+    filter: brightness(100);
 }
 @media (max-width: 992px) {
     #opcoes {
@@ -445,6 +461,10 @@ nav button.navbar-toggler {
 @media (max-width: 740px) {
     .busca-visualizacao {
         grid-template-columns: 1fr;
+    }
+    #modalSobre .modal-dialog,
+    .modal-dialog {
+        max-width: calc(100vw - 20px);
     }
 }
 @media (max-width: 576px) {

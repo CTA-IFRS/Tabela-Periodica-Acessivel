@@ -3001,7 +3001,7 @@ let filtroAtual = elementos.slice();
                 
                 <div class="col-5 d-flex flex-column text-end gap-5 m-0">
                     <div>
-                        <button class="text-end p-1" type="button" data-bs-dismiss="modal" aria-label="Fechar elemento">X</button>    
+                        <button class="text-end p-1" type="button" data-bs-dismiss="modal" aria-label="Fechar elemento"><i class="bi bi-x-lg"></i></button>    
                     </div>
 
                     <div class="d-flex flex-column">
