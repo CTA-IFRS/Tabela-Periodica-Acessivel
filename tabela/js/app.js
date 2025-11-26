@@ -2944,7 +2944,7 @@ let filtroAtual = elementos.slice();
             else {
                 //construção da div do elemento da tabela por lista
                 const $item = $(`
-                <div class="list-group-item list-group-item-action" role="listitem" tabindex="0">
+                <div id="elemento${el.numero}" class="list-group-item list-group-item-action" role="listitem" tabindex="0">
                     <strong>${el.numero}. ${el.nome} (${el.simbolo})</strong>
                     <br>
                     <small>Série: ${el.serie}</small>
