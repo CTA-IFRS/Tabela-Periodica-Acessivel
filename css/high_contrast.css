@@ -65,3 +65,16 @@
 .alto-contraste .btn-primary:hover{
     box-shadow: 0 0 1em #1069D9;
 }
+
+.alto-contraste .navbar-brand img {
+    filter: brightness(10);
+}
+
+.alto-contraste .h1, .alto-contraste .h2, .alto-contraste .h3, .alto-contraste .h4, .alto-contraste .h5, .alto-contraste .h6, .alto-contraste h1, .alto-contraste h2, .alto-contraste h3, .alto-contraste h4, .alto-contraste h5, .alto-contraste h6, .alto-contraste .base-text2, .alto-contraste .docs-article .docs-time {
+  color: var(--white) !important;
+}
+
+.alto-contraste .navbar-toggler {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
